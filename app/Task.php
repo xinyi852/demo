@@ -25,4 +25,13 @@ class Task extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * 返回属于日报的回复
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function replys()
+    {
+        return $this->hasMany(Reply::class);
+    }
 }

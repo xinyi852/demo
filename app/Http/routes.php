@@ -43,6 +43,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/user/change', 'UserController@change');
 
     Route::get('/admin/tasks', 'AdminTaskController@index')->middleware('admin');
+    Route::get('/admin/task/{task_id}', 'AdminTaskController@review')->middleware('admin');
+    Route::post('/admin/task/reply', 'AdminTaskController@reply')->middleware('admin');
     Route::get('/admin/tasks/all', 'AdminTaskController@adminTask')->middleware('admin');
 
 });

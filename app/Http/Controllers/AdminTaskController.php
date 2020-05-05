@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Task;
@@ -61,14 +62,32 @@ class AdminTaskController extends Controller
 
         die();
     }
-    public function show(Request $request,$date){
-//        var_dump($request->user()->is_admin);
-//        die();
 
-        return view('tasks.task_show', [
-            'tasks' => $this->tasks->show($request->user(),$date),
+    /**
+     * 审批日报详情页
+     * @param $task_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function review($task_id){
+        $task =  Task::where('id',$task_id)->get();
+        Task::where('id',$task_id)
+            ->update(
+                ['status'=>'reviewed']
+            );
+        return view('admin.task_show', [
+            'tasks' =>  $task,
         ]);
     }
+
+    public function reply(Request $request){
+        $task_id = $_REQUEST["task_id"];
+        Task::where('id',$task_id)
+            ->update(
+                ['reply'=>$request->user()["name"]."回复：".$_REQUEST["reply"]]
+            );
+        return redirect('/admin/task/'.$task_id);
+    }
+
 
     /**
      * Create a new task.

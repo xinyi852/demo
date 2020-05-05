@@ -92,12 +92,12 @@ class TaskRepository
     }
 
     /**
-     * @param User $user
+     * @param $user_id
      * @param $date
      * @return mixed
      */
-    public function show(User $user,$date){
-        return Task::where([["date",$date], ["user_id",$user->id],])
+    public function show($user_id,$date){
+        return Task::where([["date",$date], ["user_id",$user_id],])
                     ->get();
     }
     public function hasData(User $user,$date){

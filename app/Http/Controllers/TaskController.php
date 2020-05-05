@@ -41,7 +41,7 @@ class TaskController extends Controller
     public function show(Request $request,$date){
 
         return view('tasks.task_show',[
-            "tasks"=>$this->tasks->show($request->user(),$date)
+            "tasks"=>$this->tasks->show($request->user()->id,$date)
         ]);
     }
 
@@ -78,8 +78,36 @@ class TaskController extends Controller
     }
     public function edit(Request $request,$date){
         return view('tasks.task_edit',[
-            "tasks"=>$this->tasks->show($request->user(),$date)
+            "tasks"=>$this->tasks->show($request->user()->id,$date)
         ]);
+    }
+
+
+
+    /**
+     * @param $task_id
+     * @return Task
+     */
+    private function findTaskTest($task_id):Task
+    {
+        return Task::where("id",$task_id)->get();
+    }
+
+    /**
+     * @param $task_id
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function reply($task_id,Request $request){
+        date_default_timezone_set('PRC');
+
+        $task = $this->findTaskTest($task_id);
+        $task[0]->replys()->create([
+                'contents' => $request->contents,
+                'reviewer' => $request->user()["name"],
+                'reviewer_uid' => $request->user()["id"],
+            ]);
+        return redirect('/tasks');
     }
 
     /**
@@ -104,6 +132,7 @@ class TaskController extends Controller
                 'idea' => $request->idea,
                 'department' => $request->user()["department"],
                 'reporter' => $request->user()["name"],
+                "status" => "review",
             ]);
         }
 

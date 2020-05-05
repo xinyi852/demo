@@ -15,14 +15,23 @@
             "columns": [
                 { "data": null,
                     render:function (row, meta, index) {
-                        return'<div><a href="/task/'+row.date+'">'+row.date+'</a> </div>'
+                        return'<div><a href="task/'+row.id+'">'+row.date+'</a> </div>'
                     }
                 },
                 { "data": "department" },
                 { "data": "reporter" },
                 { "data": null,
-                    render:function (row, meta, index) {
-                        return'<div><input style="margin: auto auto auto auto" type="checkbox" class="tc-15-checkbox"></div>'
+                    render:function (row,meta,index) {
+                        if ("reviewed" !== row.status) {
+                            return "<div class=\"ext-status\"><span class=\"tc-icon-text\">\n" +
+                                "                        <span style='color: red'>未审批</span>\n" +
+                                "                        <i class=\"czs-about-l\" ></i>\n" +
+                                "                    </span>" ;
+                        } else {
+                            return "<span class=\"tc-icon-text\">\n" +
+                                "                        <span  style='color: green'>已审批</span >\n" +
+                                "                    </span>";
+                        }
                     }
                 },
                 { "data": null,
@@ -60,69 +69,14 @@
 
     <div class="container">
         <div class="row" style="padding: 0 20px;height: 40px;margin-left: 10px">
-            <button type="button" style="margin-right: 5px;height: 30px;line-height: 28px;
-            padding: 0px 20px; border-radius: 0px;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                添加日报
-            </button>
 
         </div>
         <div class="col-sm-offset-2 col-sm-8">
-                <div class="modal fade" style="background-color: " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">添加日报</h5>
-                                <button type="button" style="margin: -29px 1px -2px 0;font-size: 40px;" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true" >&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body" style="margin:auto auto auto auto">
-                                <!-- Display Validation Errors -->
-                            @include('common.errors')
-
-                            <!-- New Task Form -->
-                                <form action="{{ url('task') }}" method="POST" class="form-horizontal">
-                                {{ csrf_field() }}
-
-                                <!-- Task Name -->
-                                    <div class="form-group">
-                                        <label for="task-name" class="col-sm-3 control-label">添加新的计划</label>
-
-                                        <div class="col-sm-6">
-                                            <label>今日工作安排：</label>
-                                            <input type="text" name="today_tasks" id="today_tasks" class="form-control" value="{{ old('task') }}">
-                                            <label>今日工作内容：</label>
-                                            <input type="text" name="today_works" id="today_works" class="form-control" value="{{ old('task') }}">
-                                            <label>总结或建议：</label>
-                                            <input type="text" name="idea" id="idea" class="form-control" value="{{ old('task') }}">
-                                            <label>明日工作安排：</label>
-                                            <input type="text" name="tomorrow_tasks" id="tomorrow_tasks" class="form-control" value="{{ old('task') }}">
-                                        </div>
-                                    </div>
-
-                                    <!-- Add Task Button -->
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-3 col-sm-6">
-                                            <button type="submit" class="btn btn-default">
-                                                <i class="fa fa-btn fa-plus"></i>提交计划
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
 
             <!-- Current Tasks -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        所有工作日报
+                        <h4>审批所有工作日报</h4>
                     </div>
 
                     <div class="panel-body">
@@ -132,7 +86,7 @@
                                 <th>任务日期</th>
                                 <th>部门</th>
                                 <th>汇报人</th>
-                                <th>&nbsp;</th>
+                                <th>状态</th>
                                 <th>&nbsp;</th>
                             </tr>
                             </thead>
@@ -141,7 +95,7 @@
                                 <th>任务日期</th>
                                 <th>部门</th>
                                 <th>汇报人</th>
-                                <th>&nbsp;</th>
+                                <th>状态</th>
                                 <th>&nbsp;</th>
                             </tr>
                             </tfoot>

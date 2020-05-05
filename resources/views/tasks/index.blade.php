@@ -22,8 +22,17 @@
                 { "data": "department" },
                 { "data": "reporter" },
                 { "data": null,
-                    render:function (row, meta, index) {
-                        return'<div><input style="margin: auto auto auto auto" type="checkbox" class="tc-15-checkbox"></div>'
+                    render:function (row,meta,index) {
+                        if ("reviewed" !== row.status) {
+                            return "<div class=\"ext-status\"><span class=\"tc-icon-text\">\n" +
+                                "                        <span style='color: red'>未审批</span>\n" +
+                                "                        <i class=\"czs-about-l\" ></i>\n" +
+                                "                    </span>" ;
+                        } else {
+                            return "<span class=\"tc-icon-text\">\n" +
+                                "                        <span  style='color: green'>已审批</span >\n" +
+                                "                    </span>";
+                        }
                     }
                 },
                 { "data": null,
@@ -130,7 +139,7 @@
                                 <th>任务日期</th>
                                 <th>部门</th>
                                 <th>汇报人</th>
-                                <th>&nbsp;</th>
+                                <th>状态</th>
                                 <th>&nbsp;</th>
                             </tr>
                             </thead>
@@ -139,7 +148,7 @@
                                 <th>任务日期</th>
                                 <th>部门</th>
                                 <th>汇报人</th>
-                                <th>&nbsp;</th>
+                                <th>状态</th>
                                 <th>&nbsp;</th>
                             </tr>
                             </tfoot>

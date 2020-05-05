@@ -22,8 +22,9 @@ class CreateTasksTable extends Migration
             $table->longText('today_works')->nullable();
             $table->longText('tomorrow_tasks')->nullable();
             $table->longText("idea")->nullable();
+            $table->string("status")->nullable();
             $table->longText("reply")->nullable();
-            $table->integer("status")->nullable();
+            $table->timestamp("reply_at")->nullable();
             $table->timestamps();
         });
     }

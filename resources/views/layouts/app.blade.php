@@ -232,14 +232,14 @@
                                 <div class="icon-w">
                                     <i class="icon-social-google"></i>
                                 </div>
-                                审批今日</a>
+                                未审批</a>
                         </li>
                         <li class="selected">
                             <a href="{{ url('/admin/tasks') }}">
                                 <div class="icon-w">
                                     <i class="icon-user-following"></i>
                                 </div>
-                                审批所有</a>
+                                所有日报</a>
                         </li>
                     @endif
                     <li class="sub-header">

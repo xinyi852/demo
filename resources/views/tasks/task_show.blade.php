@@ -21,7 +21,18 @@
                         </li>
                     </ul>
                     <div class="panel-heading" style="padding: 20px">
-                        <h4>{{ $task->date }}工作日报<i ></i><a href="{{url("/task/edit/{$task->date}")}}" style="padding: 20px">修改</a></h4>
+                        <h4>{{$task->department}}-{{$task->reporter}}:{{ $task->date }}工作日报
+                            @if ($task->status=="reviewed")
+                                <span style="color: green">(已审核过)</span>
+                            @else
+                                <span style="color: red">(未审核过)</span>
+                                <i ></i>
+                                <a href="{{url("/task/edit/{$task->date}")}}" style="padding: 20px">修改</a>
+                            @endif
+                        </h4>
+                    </div>
+                    <div>
+                        {{$task->reply}}
                     </div>
 
                     <div class="panel-body" >

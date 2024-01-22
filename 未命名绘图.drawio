@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-01-22T08:33:56.127Z" agent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36" etag="CEpaXWLVvX9RgjkXuWj4" version="22.1.21" type="github">
+<mxfile host="app.diagrams.net" modified="2024-01-22T08:35:57.999Z" agent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36" etag="ml3uh5F-BLsV3_ly5UcY" version="22.1.21" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="880" dy="462" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -28,7 +28,7 @@
         <mxCell id="Ei50WVUdzshEZPzHSajD-6" value="2.API get promo code" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="440" y="160" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Ei50WVUdzshEZPzHSajD-8" value="&amp;nbsp;PROMO CODE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="Ei50WVUdzshEZPzHSajD-8" value="&lt;font color=&quot;#ff9933&quot;&gt;&amp;nbsp;PROMO CODE&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="310" y="340" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Ei50WVUdzshEZPzHSajD-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=-0.025;exitY=0.65;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Ei50WVUdzshEZPzHSajD-3">
@@ -52,12 +52,12 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="Ei50WVUdzshEZPzHSajD-18" value="4.Go portal and use promo code&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Ei50WVUdzshEZPzHSajD-11">
+        <mxCell id="Ei50WVUdzshEZPzHSajD-18" value="4.Use promo code&amp;nbsp; on PORTAL" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Ei50WVUdzshEZPzHSajD-11">
           <mxGeometry x="-0.6133" y="4" relative="1" as="geometry">
             <mxPoint x="86" y="-15" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Ei50WVUdzshEZPzHSajD-12" value="PROMO PRODUCT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="Ei50WVUdzshEZPzHSajD-12" value="&lt;font color=&quot;#ff9933&quot;&gt;PROMO PRODUCT&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="550" y="340" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Ei50WVUdzshEZPzHSajD-13" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Ei50WVUdzshEZPzHSajD-8" target="Ei50WVUdzshEZPzHSajD-12">
